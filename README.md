@@ -1,10 +1,9 @@
 # aws-credit-card-transactions-&-fraud-dection
-
-# Title Of Your Project
 Add a catchy title to your project. Something that people immediately know what you are doing
 
 # Introduction & Goals
 - Introduce your project to the reader
+
 - Orient this section on the Table of contents
 - Write this like an executive summary
   - With what data are you working
