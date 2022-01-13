@@ -1,13 +1,14 @@
-# aws-credit-card-transactions-&-fraud-dection
-Add a catchy title to your project. Something that people immediately know what you are doing
+# data-engineering-aws-credit-card-transactions
 
 # Introduction & Goals
 - Introduce your project to the reader
-
+This AWS project includes building up a complete data pipeline to collect, transform, and store data into different types of data storage to meet the needs of data users.
 - Orient this section on the Table of contents
 - Write this like an executive summary
   - With what data are you working
+The transaction data is simulated and is comprehensive with transaction details(ID, date, time and etc.), customer & merchant info and fraud alert.
   - What tools are you using
+The project is based on AWS with tools not limited to API Gateway, Lambda, Kinesis, Dynamo DB, S3, and Redshift.
   - What are you doing with these tools
   - Once you are finished add the conclusion here as well
 
