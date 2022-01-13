@@ -2,11 +2,11 @@
 # AWS Credit Card Transactions Stream and Batch Processing Data Pipeline
 
 # Introduction & Goals
-Cloud services have changed the way that businesses are operated. I have been working on data warehousing and are always exited to expand my toolbox of data engineering. With that in mind, I designed and built this data pipeline to build up knowledge in AWS and its components. The purpose of this project is to build a complete data pipeline to collect, transform, and store data into different data storages to meet the needs of data users. The credit card transactions dataset is sourced from Kaggle and will be fed into both stream and batch pipelines.
+Cloud services have changed the way that businesses are operated. I have been working on data warehousing as a data engineer and are always exited to expand my toolbox of data engineering. With that in mind, I designed and built this data pipeline to build up knowledge in AWS and its components. The purpose of this project is to build a complete data pipeline to collect, transform, and store data into different data storages to meet the needs of data users. The credit card transactions dataset is sourced from Kaggle and will be fed into both stream and batch pipelines.
 
 **Major Steps**
-* Design AWS data pipeline framework of data streaming and batch processing that is used by enterprises.
-* Set up cloud components of data streaming and batch processing(API Gateway, Kinesis, Lambda Function, Dynamo DB, S3, Redshift and RDS etc.)
+* Design an AWS data pipeline framework of stream and batch processing which is practical for real-world enterprises.
+* Set up cloud components of stream and batch processing(API Gateway, Kinesis, Lambda Function, Dynamo DB, S3, Redshift and etc.)
 * Troubleshoot and maintain the pipeline by using Cloudwatch
 
 **Transactional Goals (Users)**
@@ -50,12 +50,12 @@ The project is based on AWS with tools not limited to API Gateway, Lambda, Kines
 
 
 # The Data Set
-- Explain the data set
-The dataset [Credit Card Transactions Fraud Detection Dataset](https://www.kaggle.com/kartik2112/fraud-detection) is sourced from Kaggle. It is simulated with details that include transaction, customer, merchant, and whether each transaction is fraud. The reason why I chose this dataset is that is provides enough details for each major section. For example, transactions includes date, time, credit card/transaction number and etc. Customer info includes Location, job, dob, gender and etc regarding. The dataset meets the needs not only for transactional goals but also for analytical goals. 
+The dataset [Credit Card Transactions Fraud Detection Dataset](https://www.kaggle.com/kartik2112/fraud-detection) is sourced from Kaggle. It is simulated with info of transactions, customers, merchants, and whether each transaction is fraud. The reason why I choose this dataset is that it provides enough details for each major section. For example, transaction info includes date, time, credit card/transaction number and etc. Customer info includes Location, job, dob, gender and etc. The dataset not only meets the needs of transactional goals but also of analytical goals. 
 
-There are also problems with the dataset although the advantages outweigh the disadvantages in our use case. One of the problems is that the dataset doesn't have customer and merchant IDs which is important for database normalization if the data needs to be stored in a relational database. In this case, we'll need to generate IDs for the customers and merchants.
+There are also concerns with the dataset although the advantages outweigh the disadvantages in our use case. One of the problems is that the dataset doesn't have customer and merchant IDs which is important for database normalization if the data needs to be stored in a relational database. In this case, we'll need to generate IDs for the customers and merchants.
 
 # Used Tools
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/tools.png)
 - Explain which tools do you use and why
 - How do they work (don't go too deep into details, but add links)
 - Why did you choose them
