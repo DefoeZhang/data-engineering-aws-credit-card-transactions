@@ -1,4 +1,4 @@
-![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/Cart.jpg?raw=true)
+![alt text](https://media.wired.com/photos/5c9040ee4950d24718d6da99/191:100/w_2400,h_1256,c_limit/shoppingcart-1066110386.jpg)
 # AWS Stream and Batch Processing Data Pipeline for Credit Card Transactions
 
 # Introduction & Goals
