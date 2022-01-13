@@ -1,13 +1,24 @@
-# data-engineering-aws-credit-card-transactions
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/Cart.jpg?raw=true)
+# AWS Stream and Batch Processing Data Pipeline for Credit Card Transactions
 
 # Introduction & Goals
-- Introduce your project to the reader
-Cloud services are changing the way that businesses are operated. As a data engineering professional with more than 2 years of experience, I have been working on data warehousing and are always exited to expand my toolbox of data engineering. With that in mind, I built this AWS data pipeline. The purpose of this project is to build up a complete data pipeline to collect, transform, and store data into data storages to meet the needs of data users. The credit card transactions dataset is sourced from Kaggle and will be fed into both stream and batch pipelines.
+As a data engineering professional with more than 2 years of experience, I have been working on data warehousing and are exited to expand my toolbox of data engineering. With that in mind, I built this AWS data pipeline. The purpose of this project is to build up a complete data pipeline to collect, transform, and store data into data storages to meet the needs of data users. The credit card transactions dataset is sourced from Kaggle and will be fed into both stream and batch pipelines.
 
-Major Steps
+**Major Steps**
 * Design AWS data pipeline framework of data streaming and batch processing that is used by enterprises.
 * Set up cloud components of data streaming and batch processing(API Gateway, Kinesis, Lambda Function, Dynamo DB, S3, Redshift and RDS etc.)
-* Troubleshoot and spot errors of the pipeline by using Cloudwatch
+* Troubleshoot and maintain the pipeline by using Cloudwatch
+
+**Transactional Goals (Users)**
+To record customer/merchant info of each credit card transaction
+Fraud detection
+Access through: * credit card number and time 
+                * Access Merchant name
+
+**Analytics Goals (Analysts)**
+Regional transaction analysis(e.g. customer purchase preference based on region )
+customer segmentation(e.g. Gender, age)
+
 - Orient this section on the Table of contents
 - Write this like an executive summary
   - With what data are you working
