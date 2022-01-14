@@ -19,15 +19,6 @@ Cloud services have changed the way that businesses are operated. I have been wo
 * Regional transaction analysis(e.g. customer purchase preference based on region )
 * customer segmentation(e.g. Gender, age)
 
-- Orient this section on the Table of contents
-- Write this like an executive summary
-  - With what data are you working
-The transaction data is simulated and is comprehensive with transaction details(ID, date, time and etc.), customer & merchant info and fraud alert.
-  - What tools are you using
-The project is based on AWS with tools not limited to API Gateway, Lambda, Kinesis, Dynamo DB, S3, and Redshift.
-  - What are you doing with these tools
-  - Once you are finished add the conclusion here as well
-
 # Contents
 
 - [The Data Set](#the-data-set)
@@ -50,9 +41,9 @@ The project is based on AWS with tools not limited to API Gateway, Lambda, Kines
 
 
 # The Data Set
-The dataset [Credit Card Transactions Fraud Detection Dataset](https://www.kaggle.com/kartik2112/fraud-detection) is sourced from Kaggle. It is simulated with info of transactions, customers, merchants, and whether each transaction is fraud. The reason why I choose this dataset is that it provides enough details for each major section. For example, transaction info includes date, time, credit card/transaction number and etc. Customer info includes Location, job, dob, gender and etc. The dataset not only meets the needs of transactional goals but also of analytical goals. 
+The dataset [Credit Card Transactions Fraud Detection](https://www.kaggle.com/kartik2112/fraud-detection) is sourced from Kaggle. It is simulated with info of transactions, customers, merchants, and whether each transaction is fraud. The reason why I choose this dataset is that it provides enough details for each major section. For example, transaction info includes date, time, credit card/transaction number and etc. Customer info includes location, job, dob, gender and etc. The dataset not only meets the needs of transactional purpose but also of analytical purpose. 
 
-There are also concerns with the dataset although the advantages outweigh the disadvantages in our use case. One of the problems is that the dataset doesn't have customer and merchant IDs which is important for database normalization if the data needs to be stored in a relational database. In this case, we'll need to generate IDs for the customers and merchants.
+There are also concerns with the dataset although the advantages outweigh the disadvantages in my use case. One of the problems is that the dataset doesn't have customer and merchant IDs which is important for database normalization if the data needs to be stored in a relational database. In this case, I'll need to generate IDs for the customers and merchants.
 
 # Used Tools
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/tools.png)
@@ -65,11 +56,15 @@ API Gateway is the API management tool used in this project. It sits between the
 Kinesis is used to ingest, buffer and process streaming data in real-time. The data will lineup in Kinesis every time the API endpoint triggers the Lambda function in AWS.
 ## Processing
 Lambda functions: In this project, the use cases of Lambda function are as follow. 1. Lambda function processes the data from API Gateway and passes it to Kinesis.                   2. Lambda function processes the data from Kinesis and send it to different data stores(S3 & Dynamo DB in this project).
+
 Kinesis Firehose: It captures and automatically load streaming data into S3 and Redshift. The way Redshift ingests the streaming data is that it uses COPY command                     to copy the streaming data loaded into S3.
+
 AWS Glue:
 ## Storage
 Dynamo DB:
+
 S3:
+
 Redshift: 
 ## Visualization
 
