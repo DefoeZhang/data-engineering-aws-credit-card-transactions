@@ -2,7 +2,7 @@
 # AWS Credit Card Transactions Stream and Batch Processing Data Pipeline
 
 # Introduction & Goals
-Cloud services have changed the way that businesses are operated. I have been working on data warehousing as a data engineer and are always exited to expand my toolbox of data engineering. With that in mind, I designed and built this data pipeline to build up knowledge in AWS and its components. The purpose of this project is to build a complete data pipeline to collect, transform, and store data into different data storages to meet the needs of data users. The credit card transactions dataset is sourced from Kaggle and will be fed into both stream and batch pipelines.
+Cloud services have changed the way that businesses are operated. I have been working on data warehousing as a data engineer and are always exited to expand my toolbox of data engineering. With that in mind, I designed and built this data pipeline to build up knowledge in AWS and its components. The purpose of this project is to build a data pipeline to collect, transform, and store data into different data storages to meet the needs of data users. The credit card transactions dataset is sourced from Kaggle and will be fed into both stream and batch pipelines.
 
 **Major Steps**
 * Design an AWS data pipeline framework of stream and batch processing which is practical for real-world enterprises.
@@ -10,14 +10,14 @@ Cloud services have changed the way that businesses are operated. I have been wo
 * Troubleshoot and maintain the pipeline by using Cloudwatch
 
 **Transactional Goals (Users)**
-To record customer/merchant info of each credit card transaction
-Fraud detection
-Access through: * credit card number and time 
-                * Access Merchant name
+* To record customer/merchant info of each credit card transaction
+* Fraud detection
+* Access through: * credit card number and time 
+                  * Access Merchant name
 
 **Analytics Goals (Analysts)**
-Regional transaction analysis(e.g. customer purchase preference based on region )
-customer segmentation(e.g. Gender, age)
+* Regional transaction analysis(e.g. customer purchase preference based on region )
+* customer segmentation(e.g. Gender, age)
 
 - Orient this section on the Table of contents
 - Write this like an executive summary
@@ -56,15 +56,21 @@ There are also concerns with the dataset although the advantages outweigh the di
 
 # Used Tools
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/tools.png)
-- Explain which tools do you use and why
-- How do they work (don't go too deep into details, but add links)
-- Why did you choose them
-- How did you set them up
 
+## Client
+The client is simulated by local PC with the data source downloaded from Kaggle in CSV format. The CSV file is read by python script and then the data is sent to AWS API endpoint through POST method.
 ## Connect
+API Gateway is the API management tool used in this project. It sits between the client and the backend AWS services and acts as a reverse proxy to accept all application programming interface(API) calls, aggregate the various services required to fufill them, and return the appropriate result.
 ## Buffer
+Kinesis is used to ingest, buffer and process streaming data in real-time. The data will lineup in Kinesis every time the API endpoint triggers the Lambda function in AWS.
 ## Processing
+Lambda functions: In this project, the use cases of Lambda function are as follow. 1. Lambda function processes the data from API Gateway and passes it to Kinesis.                   2. Lambda function processes the data from Kinesis and send it to different data stores(S3 & Dynamo DB in this project).
+Kinesis Firehose: It captures and automatically load streaming data into S3 and Redshift. The way Redshift ingests the streaming data is that it uses COPY command                     to copy the streaming data loaded into S3.
+AWS Glue:
 ## Storage
+Dynamo DB:
+S3:
+Redshift: 
 ## Visualization
 
 # Pipelines
