@@ -51,13 +51,15 @@ There are also concerns with the dataset although the advantages outweigh the di
 ## Client
 The client is simulated by local PC with the data source downloaded from Kaggle in CSV format. The CSV file is read by python script and then the data is sent to AWS API endpoint through POST method.
 ## Connect
-API Gateway is the API management tool used in this project. It sits between the client and the backend AWS services and acts as a reverse proxy to accept all application programming interface(API) calls, aggregate the various services required to fufill them, and return the appropriate result.
+API Gateway is a very efficient API development tool which can run multiple versions of the same API simutaneously, allowing me to iterate, test and release new versions. I only need to pay for the the calls made. It's able to perform at any scale and the monitoring is also easy with Amazon Cloudwatch.
 ## Buffer
-Kinesis is used to ingest, buffer and process streaming data in real-time. The data will lineup in Kinesis every time the API endpoint triggers the Lambda function in AWS.
+Kinesis is a great tool for me to stream process the credit card transactions data real-time with any amount of data, even if there are many different data sources. It's serverless so there's no need to manage the infrastructure by the developer.
 ## Processing
-Lambda functions: In this project, the use cases of Lambda function are as follow. 1. Lambda function processes the data from API Gateway and passes it to Kinesis.                   2. Lambda function processes the data from Kinesis and send it to different data stores(S3 & Dynamo DB in this project).
+Lambda functions: In this project, the use cases of Lambda function are as follow.  
+1. Lambda function processes the data from API Gateway and passes it to Kinesis.  
+2. 2. Lambda function processes the data from Kinesis and send it to different data stores(S3 & Dynamo DB in this project).
 
-Kinesis Firehose: It captures and automatically load streaming data into S3 and Redshift. The way Redshift ingests the streaming data is that it uses COPY command                     to copy the streaming data loaded into S3.
+Kinesis Firehose: It captures and automatically load streaming data into S3 and Redshift. The way Redshift ingests the streaming data is that it uses COPY command to copy the streaming data loaded into S3.
 
 AWS Glue:
 ## Storage
