@@ -46,7 +46,7 @@ The dataset [Credit Card Transactions Fraud Detection](https://www.kaggle.com/ka
 There are also concerns with the dataset although the advantages outweigh the disadvantages in my use case. One of the problems is that the dataset doesn't have customer and merchant IDs which is important for database normalization if the data needs to be stored in a relational database. In this case, I'll need to generate IDs for the customers and merchants.
 
 # Used Tools
-![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/tools.png)
+![alt text](https://miro.com/app/board/o9J_lpMzpKg=/?moveToWidget=3458764516564478618&cot=14)
 
 ## Client
 The client is simulated by local PC with the data source downloaded from Kaggle in CSV format. The CSV file is read by python script and then the data is sent to AWS API endpoint through POST method.
