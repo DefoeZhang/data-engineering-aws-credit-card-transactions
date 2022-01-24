@@ -58,7 +58,7 @@ Kinesis is a great tool for me to stream process the credit card transactions da
 Lambda functions: In this project, the use cases of Lambda function are as follow.  
 1. Lambda function processes the data from API Gateway and passes it to Kinesis.  
 2. Lambda function processes the data from Kinesis and send it to different data stores(S3 & Dynamo DB in this project).  
-Kinesis Firehose: AWS Firehose checks on S3 manifest files that point to S3 data files, read the s3 data files and execute COPY Command to copy data into corresponding Redshift table.
+Kinesis Firehose: AWS Firehose checks on S3 manifest files that point to S3 data files, read the s3 data files and execute COPY Command to copy data into corresponding Redshift table.  
 AWS Glue: Glue is the serverless ETL tool which provices great convinience. Crawlers automatically discover all the datasets, extract schema and store the information in a catalog for later querying and analysis. It also automatically generates the scripts for the ETL process so the developer doesn't need to start from scratch.
 ## Storage
 Dynamo DB:
