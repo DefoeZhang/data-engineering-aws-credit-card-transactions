@@ -73,7 +73,7 @@ Redshift:
 - Go through your development and add your source code
 
 ## Stream Processing
-![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/AWS%20Flow.drawio%20(1).png)
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/AWS%20Flow%20(2).png)
 ### Storing Data Stream
 ### Processing Data Stream
 ## Batch Processing
