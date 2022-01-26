@@ -81,11 +81,13 @@ Redshift:
 * The Write-to-Kinesis Lambda function will be triggered once transaction data reaches the API Gateway and will pass the data received to Kinesis
 * Kinesis Data Stream: A basic kinesis data stream has been created with the number of open shards = 1 and with the data retention period of one day. Once the event reaches kinesis, there are two Lambda functions will be triggered, write-to-DynamoDB and write-to-S3 respectively.
 * Write-to-DynamoDB and write-to-S3 will take the events received from Kinesis and load them into the OLTP table in DynamoDB and into S3 bucket respectively.
-* Meanwhile, when data gets loaded into S3 bucket, Firehose delivery stream executes COPY Command to copy data from S3 bucket to Redshift. Redshift will use S3 manifest files to look for the S3 data files that should be copied and then copy the data into Redshift table.
-* 
-### Storing Data Stream
-### Processing Data Stream
+* Meanwhile, when data gets loaded into S3 bucket, Firehose delivery stream executes COPY Command to copy data from S3 bucket to Redshift. Redshift will use S3 manifest files created by Firehose to look for the S3 data files that should be copied and then copy the corresponding data into Redshift table.
+* With the steps above, the credit card transactions data will be successfully transformed and transported from the client to our data stores. 
 ## Batch Processing
+1. The layout of the batch processing
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/Batch%20Processing%20Flow%20(1).png)
+2. The work flow
+*
 ## Visualizations
 
 # Demo
