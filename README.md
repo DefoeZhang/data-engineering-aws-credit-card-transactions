@@ -59,7 +59,7 @@ Lambda functions: In this project, the use cases of Lambda function are as follo
 1. Lambda function processes the data from API Gateway and passes it to Kinesis.  
 2. Lambda function processes the data from Kinesis and send it to different data stores(S3 & Dynamo DB in this project).  Kinesis Firehose: AWS Firehose checks on S3 manifest files that point to S3 data files, read the s3 data files and execute COPY Command to copy data into corresponding Redshift table. 
 
-AWS Glue: Glue is the serverless ETL tool which provices great convinience. Crawlers automatically discover all the datasets, extract schema and store the information in a catalog for later querying and analysis. It also automatically generates the scripts for the ETL process so the developer doesn't need to start from scratch.
+AWS Glue: Glue is the serverless ETL tool which provices great convinience. Crawlers automatically discover all the datasets, extract schema and store the information in a catalog for later querying and analysis. It also automatically generates the script for the ETL process so the developer doesn't need to start from scratch.
 ## Storage
 Dynamo DB:
 
@@ -76,7 +76,11 @@ Redshift:
 1. The layout of the stream processing
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/AWS%20Flow%20(3).png)
 2. The work flow
-
+* The local PC executes the Python script sending the credit card transactions data to API Gateway.
+* API Gateway acts as a gate and a bridge between the local csv data and Kinesis data streams
+* The Write-to-Kinesis Lambda function will be triggered once transaction data reaches the API Gateway and will pass the data received to Kinesis
+* Kinesis Data Stream: A basic kinesis data stream has been created with the number of open shards = 1 and with the data retention period of one day. Once the event reaches kinesis, there are two Lambda functions will be triggered, write-to-DynamoDB and write-to-S3 respectively.
+* Write-to-DynamoDB and write-to-S3 will take the events received from Kinesis and load them into the OLTP table in DynamoDB and into S3 bucket respectively.
 ### Storing Data Stream
 ### Processing Data Stream
 ## Batch Processing
