@@ -1,1 +1,0 @@
-COPY firehosetransactions FROM 's3://my-firehose-redshift/<manifest>' CREDENTIALS 'aws_iam_role=arn:aws:iam::<aws-account-id>:role/<role-name>' MANIFEST json 's3://my-firehose-redshift/jsonpaths.json' dateformat 'auto' ROUNDEC;
