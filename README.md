@@ -72,10 +72,36 @@ Redshift:
 
 ## Stream Processing
 1. The layout of the stream processing
-![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/insert_data.py)
-2. The work flow
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/Batch%20Processing%20Flow%20(1).png)
+3. The work flow
 * The local PC executes the Python script sending the credit card transactions data to API Gateway.
-![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/APIGateway_Kinesis.png)
+'''
+{
+  "jsonpaths": [
+      "$.trans_date_trans_time",
+      "$.cc_num",
+      "$.merchant",
+      "$.category",
+      "$.amt",
+      "$.first",
+      "$.last",
+      "$.gender",
+      "$.street",
+      "$.city",
+      "$.state",
+      "$.zip",
+      "$.lat",
+      "$.long",
+      "$.city_pop",
+      "$.job",
+      "$.dob",
+      "$.trans_num",
+      "$.merch_lat",
+      "$.merch_long",
+      "$.is_fraud"
+    ]
+}
+'''
 * API Gateway acts as a gate and a bridge between the local csv data and Kinesis data streams
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/APIGateway_Kinesis.png)
 * The [Write-to-Kinesis](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/writeKinesis.py) Lambda function will be triggered once transaction data reaches the API Gateway and will pass the data received to Kinesis
