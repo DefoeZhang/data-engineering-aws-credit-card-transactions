@@ -129,7 +129,7 @@ The project is a success and it meets the needs of processing the data and trans
 * It's a good choice to store your raw data before transforming it because you might need it for other purposes.
 
 Challenges in the project:
-* Troubleshooting sometimes is hard because you need to fully understand the logic of the data flowing in the pipeline and understand how exactly different components work with each other. AWS sometimes doesn't provide enough info when errors happen and you will need to try different solutions out.
+* Troubleshooting sometimes is hard because you need to fully understand the logic of how the data is flowing in the pipeline and understand how exactly different components work with each other. AWS sometimes doesn't provide enough info when errors happen and you will need to try different solutions out.
 * Setting up the data types of table schema while importing data into Redshift can be challenging due to the lack of information provided by STL_LOAD_ERRORS. You have to be really careful and make sure that the data fed in matches the table schema. Redshift is very picky on this.
 # Follow Me On
 Linkedin: https://www.linkedin.com/in/defoe/
