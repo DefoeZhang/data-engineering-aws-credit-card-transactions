@@ -68,7 +68,7 @@ Redshift: The OLAP database. Most of the analysis and visualization will be base
 
 ## Stream Processing
 1. The layout of the stream processing
-![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/Batch%20Processing%20Flow%20(1).png)
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/AWS%20Flow%20(3).png)
 2. The work flow
 * The local PC executes the Python script sending the credit card transactions data to API Gateway.
 ```
