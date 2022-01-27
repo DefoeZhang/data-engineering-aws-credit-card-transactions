@@ -110,8 +110,11 @@ for i in data_sample.index:
 * Run the job created in the previous step and the ETL will be conducted. Processing info of status/error will be available in the Couldwatch log when job is done. 
 ## Visualizations
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/MoneySpentByGender%26State.png)(Money Spent by Gender & State)
+
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/MoneySpentByGender.png)(Money Spent by Gender & Category)
+
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/moneySpentByYearOfBirth.png)(Money Spent by Year of Birth)
+
 # Demo
 - You could add a demo video here
 - Or link to your presentation video of the project
