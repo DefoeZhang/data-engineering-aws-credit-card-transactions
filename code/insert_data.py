@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-URL = 'https://y174rvy0j8.execute-api.us-east-1.amazonaws.com/ccrecords/creditcardrecords'
+URL = 'the api gateway stage invoke url'
 
 data = pd.read_csv('FraudTest.csv', sep = ',', index_col=False)
 data_sample = data[:5]
