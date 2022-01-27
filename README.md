@@ -124,12 +124,12 @@ From the analysis, there are several interesting results found from our dataset:
 - Or link to your presentation video of the project
 
 # Conclusion
-Write a comprehensive conclusion.
-- How did this project turn out
-- What major things have you learned
-- What were the biggest challenges
 The project is a success and it meets the needs of processing the data and transporting it to destinations based on different use cases. I'd like to highlight serveral key points I summarized from this project experience:
-* Taking time to deep dive and design the data pipeline structure is well worth it. It helps you build pipelines that are more practical and efficient and it also reduces the chances of making big changes to your pipelines due to the unreasonable design which is time-consuming. 
+* Taking time to deep dive and design the data pipeline structure is well worth it. It helps you build pipelines that are more practical and efficient and it also reduces the chances of making big changes to your pipelines due to the unreasonable design which is time-consuming.
+* It's a good choice to store your raw data before transforming it because you might need it for other purposes.
+Challenges in the project:
+* Troubleshooting sometimes is hard because you need to fully understand the logic of the data flowing in the pipeline and understand how exactly different components work with each other. AWS sometimes doesn't provide enough info when errors happen and you will need to try different solutions out.
+* Setting up the data types of table schema while importing data into Redshift can be challenging due to the lack of information provided by STL_LOAD_ERRORS. You have to be really careful and make sure that the data fed in matches the table schema. Redshift is very picky on this.
 # Follow Me On
 Linkedin: 
 
