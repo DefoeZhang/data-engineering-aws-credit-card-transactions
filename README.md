@@ -109,6 +109,10 @@ for i in data_sample.index:
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/Glue%20Spark%20Script.png)(Glue Spark Script)
 * Run the job created in the previous step and the ETL will be conducted. Processing info of status/error will be available in the Couldwatch log when job is done. 
 ## Visualizations
+From the analysis, there are several interesting results found from our dataset:
+* In general, women tend to spend more than men.
+* In the categories of kids, pets, health & fitness, entertainment, shopping_pos and shopping_net, women spend significantly more than man. The categories where men spend more on are food & dining, misc_pos, travel and misc_set.
+* People born between 1970 and 2000(age between 20-50) contribute to most of the expenditures.
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/MoneySpentByGender%26State.png)(Money Spent by Gender & State)
 
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/MoneySpentByGender.png)(Money Spent by Gender & Category)
