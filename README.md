@@ -112,7 +112,7 @@ for i in data_sample.index:
 From the analysis, there are several interesting results found from our dataset:
 * In general, women tend to spend more than men.
 * In the categories of kids, pets, health & fitness, entertainment, shopping_pos and shopping_net, women spend significantly more than man. The categories where men spend more on are food & dining, misc_pos, travel and misc_set.
-* People born between 1970 and 2000(age between 20-50) contribute to most of the expenditures.
+* People born between 1970 and 2000(age between 20-50) contribute to the biggest part of the consumption.
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/MoneySpentByGender%26State.png)(Money Spent by Gender & State)
 
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/MoneySpentByGender.png)(Money Spent by Gender & Category)
@@ -128,7 +128,8 @@ Write a comprehensive conclusion.
 - How did this project turn out
 - What major things have you learned
 - What were the biggest challenges
-
+The project is a success and it meets the needs of processing the data and transporting it to destinations based on different use cases. I'd like to highlight serveral key points I summarized from this project experience:
+* Taking time to deep dive and design the data pipeline structure is well worth it. It helps you build pipelines that are more practical and efficient and it also reduces the chances of making big changes to your pipelines due to the unreasonable design which is time-consuming. 
 # Follow Me On
 Linkedin: 
 
