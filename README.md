@@ -96,7 +96,8 @@ for i in data_sample.index:
 * Kinesis Data Stream: A basic kinesis data stream has been created with the number of open shards = 1 and with the data retention period of one day. Once the event reaches kinesis, there are two Lambda functions will be triggered, [write-to-DynamoDB](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-dynamodb.py) and [write-to-S3](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-s3.py) respectively.
 * [write-to-DynamoDB](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-dynamodb.py) and [write-to-S3](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-s3.py) will take the events received from Kinesis and load them into the OLTP table in DynamoDB and into S3 bucket respectively.
 * Meanwhile, when data gets loaded into S3 bucket, Firehose delivery stream executes [COPY Command](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/CopyCommand.txt) to copy data from S3 bucket to Redshift following the structure of [jsonpath file](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/jsonpaths.json) stored in S3 bucket. Redshift will use S3 manifest files created by Firehose to look for the S3 data files that should be copied and then copy the corresponding data into Redshift table.
-* With the steps above, the credit card transactions data will be successfully transformed and transported from the client to our data stores. 
+* With the steps above, the credit card transactions data will be successfully transformed and transported from the client to our data stores.
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/RedeshiftTable.png)(Redshift Table)
 ## Batch Processing
 1. The layout of the batch processing
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/Batch%20Processing%20Flow%20(1).png)
@@ -108,7 +109,9 @@ for i in data_sample.index:
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/Glue%20Spark%20Script.png)(Glue Spark Script)
 * Run the job created in the previous step and the ETL will be conducted. Processing info of status/error will be available in the Couldwatch log when job is done. 
 ## Visualizations
-
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/MoneySpentByGender%26State.png)(Money Spent by Gender & State)
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/MoneySpentByGender.png)(Money Spent by Gender & Category)
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/moneySpentByYearOfBirth.png)(Money Spent by Year of Birth)
 # Demo
 - You could add a demo video here
 - Or link to your presentation video of the project
