@@ -59,54 +59,42 @@ Lambda functions: In this project, the use cases of Lambda function are as follo
 
 AWS Glue: Glue is the serverless ETL tool which provices great convinience. Crawlers automatically discover all the datasets, extract schema and store the information in a catalog for later querying and analysis. It also automatically generates the script for the ETL process so the developer doesn't need to start from scratch.
 ## Storage
-Dynamo DB:
+Dynamo DB: Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale. A partition kay(cc_num) and a sort key(trans_date_trans_time) are design to access data in this project.
 
-S3:
+S3: The data lake in this project. It'll be used to store both processed data as well as raw data.
 
-Redshift: 
+Redshift: The OLAP database. Most of the analysis and visualization will be based on the data stored here. 
 ## Visualization
-
-# Pipelines
-- Explain the pipelines for processing that you are building
-- Go through your development and add your source code
 
 ## Stream Processing
 1. The layout of the stream processing
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/Batch%20Processing%20Flow%20(1).png)
-3. The work flow
+2. The work flow
 * The local PC executes the Python script sending the credit card transactions data to API Gateway.
 ```
-{
-  "jsonpaths": [
-      "$.trans_date_trans_time",
-      "$.cc_num",
-      "$.merchant",
-      "$.category",
-      "$.amt",
-      "$.first",
-      "$.last",
-      "$.gender",
-      "$.street",
-      "$.city",
-      "$.state",
-      "$.zip",
-      "$.lat",
-      "$.long",
-      "$.city_pop",
-      "$.job",
-      "$.dob",
-      "$.trans_num",
-      "$.merch_lat",
-      "$.merch_long",
-      "$.is_fraud"
-    ]
-}
+import requests
+import pandas as pd
+
+URL = 'https://y174rvy0j8.execute-api.us-east-1.amazonaws.com/ccrecords/creditcardrecords'
+
+data = pd.read_csv('FraudTest.csv', sep = ',', index_col=False)
+data_sample = data[:5]
+
+for i in data_sample.index:
+    try:
+        export = data_sample.loc[i].to_json()
+
+        response = requests.post(URL, data = export)
+
+        print(response)
+    except:
+        print(data_sample.loc[i])
 ```
 * API Gateway acts as a gate and a bridge between the local csv data and Kinesis data streams
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/APIGateway_Kinesis.png)
 * The [Write-to-Kinesis](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/writeKinesis.py) Lambda function will be triggered once transaction data reaches the API Gateway and will pass the data received to Kinesis
 * Kinesis Data Stream: A basic kinesis data stream has been created with the number of open shards = 1 and with the data retention period of one day. Once the event reaches kinesis, there are two Lambda functions will be triggered, [write-to-DynamoDB](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-dynamodb.py) and [write-to-S3](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-s3.py) respectively.
-* [write-to-DynamoDB](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-dynamodb.py) and [write-to-S3](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-s3.py) will take the events received from Kinesis and load them into the OLTP table in DynamoDB and into S3 bucket respectively.
+* [write-to-DynamoDB](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-dynamodb.py) and [write-to-S3](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/write-kinesis-to-s3.py) will take the events received from Kinesis and load them into the OLTP table into DynamoDB and into S3 bucket respectively.
 * Meanwhile, when data gets loaded into S3 bucket, Firehose delivery stream executes (COPY Command)(https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/CopyCommand.txt) to copy data from S3 bucket to Redshift following the structure of (jsonpath file)(https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/code/jsonpaths.json) stored in S3 bucket. Redshift will use S3 manifest files created by Firehose to look for the S3 data files that should be copied and then copy the corresponding data into Redshift table.
 * With the steps above, the credit card transactions data will be successfully transformed and transported from the client to our data stores. 
 ## Batch Processing
@@ -117,6 +105,7 @@ Redshift:
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/Glue%20Catalog.png)(Glue Catalog)
 * A Glue job will be created to transform the data based on the catalogs generated by Crawler and then load it to corresponding Redshift table. In this step, I will need to set up the data source and the data target for the job, and specify the processing framework. In this project, Spark is selected and a script will be generated automatically based on the job setup. The developer is also able to edit the script if changes are needed.
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/glue%20jub%20mapping.png)(Glue job mapping)
+![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/Glue%20Spark%20Script.png)(Glue Spark Script)
 * Run the job created in the previous step and the ETL will be conducted. Processing info of status/error will be available in the Couldwatch log when job is done. 
 ## Visualizations
 
