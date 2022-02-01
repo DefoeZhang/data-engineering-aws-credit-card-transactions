@@ -32,7 +32,6 @@ Cloud services have changed the way that businesses are operated. I have been wo
   - [Stream Processing](#stream-processing)
   - [Batch Processing](#batch-processing)
   - [Visualizations](#visualizations)
-- [Demo](#demo)
 - [Conclusion](#conclusion)
 - [Follow Me On](#follow-me-on)
 - [Appendix](#appendix)
@@ -118,10 +117,6 @@ From the analysis, there are several interesting results found from our dataset:
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/MoneySpentByGender.png)(Money Spent by Gender & Category)
 
 ![alt text](https://github.com/DefoeZhang/data-engineering-aws-credit-card-transactions/blob/main/image/moneySpentByYearOfBirth.png)(Money Spent by Year of Birth)
-
-# Demo
-- You could add a demo video here
-- Or link to your presentation video of the project
 
 # Conclusion
 The project is a success and it meets the needs of processing the data and transporting it to destinations based on different use cases. I'd like to highlight serveral key points I summarized from this project experience:
