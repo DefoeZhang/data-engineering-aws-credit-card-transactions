@@ -48,7 +48,7 @@ There are also concerns with the dataset although the advantages outweigh the di
 ## Client
 The client is simulated by local PC with the data source downloaded from Kaggle in CSV format. The CSV file is read by python script and then the data is sent to AWS API endpoint through POST method.
 ## Connect
-API Gateway is a very efficient API development tool which can run multiple versions of the same API simutaneously, allowing me to iterate, test and release new versions. I only need to pay for the the calls made. It's able to perform at any scale and the monitoring is also easy with Amazon Cloudwatch.
+API Gateway is a very efficient API development tool which can run multiple versions of the same API simutaneously, allowing me to iterate, test and release new versions. I only need to pay for the the calls made. It is able to perform at any scale and the monitoring is also easy with Amazon Cloudwatch.
 ## Buffer
 Kinesis is a great tool for me to stream process the credit card transactions data real-time with any amount of data, even if there are many different data sources. It's serverless so there's no need to manage the infrastructure by the developer.
 ## Processing
@@ -63,7 +63,6 @@ Dynamo DB: Amazon DynamoDB is a fully managed, serverless, key-value NoSQL datab
 S3: The data lake in this project. It'll be used to store both processed data as well as raw data.
 
 Redshift: The OLAP database. Most of the analysis and visualization will be based on the data stored here. 
-## Visualization
 
 ## Stream Processing
 1. The layout of the stream processing
